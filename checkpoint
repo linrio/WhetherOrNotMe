@@ -1,0 +1,3 @@
+model_checkpoint_path: "G:/codes/tensorflow2/WhetherOrNotMe/models/whether_orNot_me.model-100"
+all_model_checkpoint_paths: "G:/codes/tensorflow2/WhetherOrNotMe/models/whether_orNot_me.model-0"
+all_model_checkpoint_paths: "G:/codes/tensorflow2/WhetherOrNotMe/models/whether_orNot_me.model-100"
