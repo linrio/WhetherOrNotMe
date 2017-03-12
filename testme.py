@@ -1,3 +1,4 @@
+# -*- coding utf-8 -*-
 import cv2
 import os
 import numpy as np
@@ -38,6 +39,17 @@ def read_data(img_path, image_h = 64, image_w = 64):
     Y = tf.placeholder(tf.float32, [None, 2])
     return Y
 
-img_path = '4833.jpg'
-print(read_data(img_path))
+#img_path = '4833.jpg'
+#print(read_data(img_path))
 
+x_data = np.float32(np.random.rand(2,100))
+y_data = np.dot([0.100, 0.200], x_data) + 0.300
+
+b = tf.Variable(tf.zeros([1]), name='B')
+W = tf.Variable(tf.random_uniform([1, 2], -1.0, 1.0), name='W')
+y = tf.add(tf.matmul(W, x_data, name='MatMul'), b ,name='add')
+
+loss = tf.reduce_mean(tf.square(tf.subtract(y, y_data, name='Sub'), name='Square'), name='ReduceMean')
+optimizer = tf.tarin.GradientDescentOptimizer(0.001, name='Optimizer')
+train = optimizer.minimize(loss, name='minimize')
+print(train)
