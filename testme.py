@@ -50,6 +50,9 @@ W = tf.Variable(tf.random_uniform([1, 2], -1.0, 1.0), name='W')
 y = tf.add(tf.matmul(W, x_data, name='MatMul'), b ,name='add')
 
 loss = tf.reduce_mean(tf.square(tf.subtract(y, y_data, name='Sub'), name='Square'), name='ReduceMean')
-optimizer = tf.tarin.GradientDescentOptimizer(0.001, name='Optimizer')
+optimizer = tf.train.GradientDescentOptimizer(0.001, name='Optimizer')
 train = optimizer.minimize(loss, name='minimize')
-print(train)
+
+summaries = [tf.summary.histogram('W',W), tf.summary.histogram('b', b), tf.summary.scalar('loss', loss)]
+summary_op = tf.summary.merge(summaries)
+print(summary_op)
